@@ -1,14 +1,17 @@
+result = 0
+
 while True:
 
-    text = input()
-    result = ""
+    command = input()
 
-    if text == "End":
+    if command == "END":
         break
-    elif text == "SoftUni":
-        pass
-    else:
-        for ch in text:
-            for el in ch:
-                result += 2 * el
-        print(result)
+    elif command == "CODING" or command == "DOG" or command == "CAT" or command == "MOVIE":
+        result += 2
+    elif command == "coding" or command == "dog" or command == "cat" or command == "movie":
+        result += 1
+
+if result > 5:
+    print("You need extra sleep")
+else:
+    print(result)
