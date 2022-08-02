@@ -1,10 +1,14 @@
-n = int(input())
-
-for _ in range(n):
+while True:
 
     text = input()
+    result = ""
 
-    if "," in text or "." in text or "_" in text:
-        print(f"{text} is not pure!")
+    if text == "End":
+        break
+    elif text == "SoftUni":
+        pass
     else:
-        print(f"{text} is pure.")
+        for ch in text:
+            for el in ch:
+                result += 2 * el
+        print(result)
