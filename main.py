@@ -1,10 +1,13 @@
-age = int(input())
+n = int(input())
 
-if age <= 14:
-    print("drink toddy")
-elif 14 < age <= 18:
-    print("drink coke")
-elif 18 < age <= 21:
-    print("drink beer")
-elif age > 21:
-    print("drink whisky")
+for _ in range(n):
+    num = int(input())
+
+    if num == 88:
+        print("Hello")
+    elif num == 86:
+        print("How are you?")
+    elif num > 88:
+        print("Bye.")
+    else:
+        print("GREAT!")
