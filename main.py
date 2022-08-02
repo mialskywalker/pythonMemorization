@@ -1,20 +1,14 @@
-while True:
+first_string = input()
+second_string = input()
+result = ""
 
-    name = input()
+for i in range(len(first_string)):
 
-    if name == "Welcome!":
-        print("Welcome to Hogwarts.")
-        break
-    elif name == "Voldemort":
-        print("You must not speak of that name!")
-        break
+    result = first_string
+
+    first_string = first_string.replace(first_string[i], second_string[i], 1)
+
+    if result != first_string:
+        print(first_string)
     else:
-
-        if len(name) < 5:
-            print(f"{name} goes to Gryffindor.")
-        elif len(name) == 5:
-            print(f"{name} goes to Slytherin.")
-        elif len(name) == 6:
-            print(f"{name} goes to Ravenclaw.")
-        else:
-            print(f"{name} goes to Hufflepuff.")
+        continue
