@@ -1,17 +1,20 @@
-result = 0
-
 while True:
 
-    command = input()
+    name = input()
 
-    if command == "END":
+    if name == "Welcome!":
+        print("Welcome to Hogwarts.")
         break
-    elif command == "CODING" or command == "DOG" or command == "CAT" or command == "MOVIE":
-        result += 2
-    elif command == "coding" or command == "dog" or command == "cat" or command == "movie":
-        result += 1
+    elif name == "Voldemort":
+        print("You must not speak of that name!")
+        break
+    else:
 
-if result > 5:
-    print("You need extra sleep")
-else:
-    print(result)
+        if len(name) < 5:
+            print(f"{name} goes to Gryffindor.")
+        elif len(name) == 5:
+            print(f"{name} goes to Slytherin.")
+        elif len(name) == 6:
+            print(f"{name} goes to Ravenclaw.")
+        else:
+            print(f"{name} goes to Hufflepuff.")
