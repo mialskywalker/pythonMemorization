@@ -13,11 +13,13 @@ for el in text:
     value = int(value)
 
     if command == 'rest':
-        current_energy += value
-        if current_energy > 100:
+
+        if current_energy + value >= 100:
+            print(f"You gained {100 - current_energy} energy.")
             current_energy = 100
-            value = 0
-        print(f"You gained {value} energy.")
+        else:
+            current_energy += value
+            print(f"You gained {value} energy.")
         print(f"Current energy: {current_energy}.")
 
     elif command == 'order':
