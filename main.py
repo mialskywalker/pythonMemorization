@@ -10,5 +10,6 @@ for i in range(len(first_string)):
 
     if result != first_string:
         print(first_string)
+        print("asd")
     else:
         continue
