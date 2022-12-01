@@ -1,4 +1,4 @@
-from OOP.classes_and_objects.exercises.project.user import User
+from OOP.classes_and_objects.exercises.user import User
 
 
 class Library:
