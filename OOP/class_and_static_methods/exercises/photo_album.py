@@ -20,7 +20,7 @@ class PhotoAlbum:
                 index = i
                 break
         if not self.has_free_space:
-            return "no more free spots"
+            return "No more free slots"
 
         self.photos[index].append(label)
         return f"{label} photo added successfully on page" \
@@ -28,9 +28,11 @@ class PhotoAlbum:
 
     def display(self):
         result = "-----------\n"
-        for el in self.photos:
-            result += '[] ' * len(el)
+        for i in range(self.pages):
+            result += '[] ' * len(self.photos[i])
             result = result.strip()
+            if len(self.photos[i]) <= 0:
+                result += '\n'
             result += '\n-----------\n'
         return result
 
