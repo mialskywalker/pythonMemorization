@@ -1,36 +1,38 @@
 class PhotoAlbum:
-    MAX_PHOTOS_PER_PAGE = 4
+    MAX_PHOTOS = 4
 
     def __init__(self, pages: int):
         self.pages = pages
-        self.photos = []
-        self.spots_remaining = self.get_capacity(PhotoAlbum.MAX_PHOTOS_PER_PAGE, self.pages)
+        self.photos = [[] for _ in range(self.pages)]
+        self.has_free_space = False
 
     @classmethod
     def from_photos_count(cls, photos_count: int):
-        return cls(photos_count)
+        return cls(photos_count // 4)
 
     def add_photo(self, label: str):
-        if self.spots_remaining <= 0:
-            return "No more free spots"
+        index = 0
         for i in range(self.pages):
-            if len(self.photos[i]) >= 4:
-                continue
+            if len(self.photos[i]) >= PhotoAlbum.MAX_PHOTOS:
+                self.has_free_space = False
             else:
-                self.photos.append(label)
-                self.spots_remaining -= 1
-                return f"{label} photo added successfully on page " \
-                       f"{i + 1} slot {self.photos.index(label)}"
+                self.has_free_space = True
+                index = i
+                break
+        if not self.has_free_space:
+            return "no more free spots"
+
+        self.photos[index].append(label)
+        return f"{label} photo added successfully on page" \
+               f" {index + 1} slot {self.photos[index].index(self.photos[index][-1]) + 1}"
 
     def display(self):
-        result = ''
-        for _ in range(self.pages + 1):
-            result += '-----------'
-            # TODO DISPLAY
-
-    @staticmethod
-    def get_capacity(max_per_page, pages):
-        return max_per_page * pages
+        result = "-----------\n"
+        for el in self.photos:
+            result += '[] ' * len(el)
+            result = result.strip()
+            result += '\n-----------\n'
+        return result
 
 
 album = PhotoAlbum(2)
