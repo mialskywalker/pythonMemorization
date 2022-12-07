@@ -1,4 +1,4 @@
-from OOP.encapsulation.animal import Animal
+from OOP.encapsulation.exercises.wild_cat_zoo.animal import Animal
 
 
 class Cheetah(Animal):
