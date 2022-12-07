@@ -2,7 +2,7 @@ import re
 
 
 class Profile:
-    __PASSWORD_PATTERN = '\w+\d'
+    __PASSWORD_PATTERN = '(?=[A-Za-z0-9+)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}).*$'
 
     def __init__(self, username, password):
         self.username = username
